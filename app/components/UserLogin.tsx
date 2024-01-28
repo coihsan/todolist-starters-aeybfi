@@ -2,7 +2,7 @@ import Image from "next/image";
 export default function UserLogin() {
   return (
     <div className="flex items-center gap-3">
-      <span className="text-1xl font-bold">YourName</span>
+      <span className="text-1xl font-bold max-sm:hidden">YourName</span>
       <button type="button">
         <Image
           className="rounded-full"
