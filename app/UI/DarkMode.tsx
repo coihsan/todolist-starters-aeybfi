@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import { iconsUI } from "../constants/icons";
 import Image from "next/image";
 export default function DarkMode() {
   const [isDarkMode, setIsDarkMode] = useState(() => {
@@ -28,13 +29,16 @@ export default function DarkMode() {
   }, []);
   return (
     <div className="relative flex items-center justify-center">
-      <Image
+      <div className="w-6 h-6 absolute z-1">
+        {isDarkMode ? iconsUI.sun : iconsUI.moon}
+      </div>
+      {/* <Image
         className="w-6 h-6 absolute z-1"
-        src={isDarkMode ? "/moon.svg" : "/sun.svg"}
+        src={isDarkMode ? iconsUI.moon : iconsUI.sun}
         height={20}
         width={20}
         alt="darkmode"
-      />
+      /> */}
       <input
         className="w-8 h-8 z-10 opacity-0 cursor-pointer"
         onChange={handleDarkMode}

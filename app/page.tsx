@@ -4,12 +4,12 @@ import Footer from "./components/Footer";
 import TaskList from "./components/TaskList";
 export default function Home() {
   return (
-    <section className="h-[100svh] w-full">
+    <section className="h-[100svh] w-full flex">
       <Navbar />
-      <main className="px-12 max-sm:px-6">
+      <main className="px-12 max-sm:px-6 bg-white dark:bg-onyx-800 w-full">
         <TaskList />
+        <Footer />
       </main>
-      <Footer />
     </section>
   );
 }
