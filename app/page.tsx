@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import TaskList from "./components/TaskList";
+import ModalAddTask from "./UI/ModalAddTask";
 export default function Home() {
   return (
     <section className="h-[100svh] w-full flex">
@@ -10,6 +11,7 @@ export default function Home() {
       <main className="px-12 max-sm:px-6 bg-white dark:bg-onyx-800 w-full">
         <Header />
         <TaskList />
+        <ModalAddTask />
         <Footer />
       </main>
     </section>
