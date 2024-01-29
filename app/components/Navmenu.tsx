@@ -1,3 +1,5 @@
+"use client";
+import { useState } from "react";
 import Link from "next/link";
 import { iconNav } from "../constants/icons";
 interface Props {
@@ -12,25 +14,33 @@ const navmenu: Props[] = [
   { key: 2, icon: iconNav.star, text: "Upcoming", href: "/" },
   { key: 3, icon: iconNav.star, text: "Anytime", href: "/" },
   { key: 4, icon: iconNav.star, text: "Sameday", href: "/" },
-  { key: 5, icon: iconNav.star, text: "Notes", href: "/" },
-  { key: 6, icon: iconNav.star, text: "Trash", href: "/" },
+  { key: 5, icon: iconNav.notes, text: "Notes", href: "/" },
+  { key: 6, icon: iconNav.trash, text: "Trash", href: "/" },
 ];
 interface Props {
   styling: string;
 }
 export default function Navmenu({ styling }: Props) {
+  const [isActive, setIsActive] = useState(false);
+  const handleClick = () => {
+    if (!isActive) {
+      setIsActive(isActive);
+    }
+  };
   return (
     <nav className={`${styling} flex items-start flex-col gap-1`}>
       {navmenu.map((nav) => (
         <Link
-          className="flex items-center hover:bg-indigo-700 rounded-md px-5 py-3 w-full transition-all ease-in-out duration-300 hover:text-white"
+          className="flex items-center group hover:bg-indigo-500 rounded-md px-5 py-3 w-full transition-all ease-in-out duration-300 hover:text-white "
           key={nav.key}
           href={nav.href}
         >
-          <span className="w-5 h-5 fill-onyx-500 dark:fill-onyx-300">
+          <span className="flex items-center justify-center w-4 h-4 fill-onyx-500 dark:fill-onyx-300 group-hover:fill-white">
             {nav.icon}
           </span>
-          <span className="font-semibold pl-6">{nav.text}</span>
+          <span className="font-semibold pl-6 leading-none align-baseline">
+            {nav.text}
+          </span>
         </Link>
       ))}
     </nav>
