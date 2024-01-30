@@ -1,28 +1,15 @@
-function SaveTask() {
-  return (
-    <input
-      type="submit"
-      className="buttonUtils cursor-pointer bg-indigo-500 text-white fill-white"
-      value="Add Task"
-    />
-  );
-}
-function CloseTask() {
-  return (
-    <button onClick={close} className="buttonUtils bg-onyx-50">
-      Cancel
-    </button>
-  );
-}
+"use client";
+import { useState } from "react";
+
 interface Props {
   Close?: () => void;
 }
 export default function ModalAddTask({ Close }: Props) {
   return (
-    <div className="absolute flexJustifyCenter left-0 top-0 w-full h-screen bg-indigo-700/10 backdrop-blur-sm">
-      <div className="min-w-[600px] max-w-xs h-[80%] overflow-y-scroll grid bg-white p-5 rounded-xl">
+    <div className="absolute flexJustifyCenter left-0 top-0 w-full h-screen bg-black/5 backdrop-blur-sm p-6">
+      <div className="min-w-[600px] max-w-xs h-[80%] max-sm:min-w-max overflow-y-scroll grid bg-white p-5 rounded-xl shadow-2xl">
         <h1 className="text-md font-bold">New Task</h1>
-        <div className="flex flex-col">
+        <div className="flexCol">
           <label htmlFor="title">Task title</label>
           <input
             className="h-12 w-full rounded-md border border-onyx-100 pl-3"
@@ -31,7 +18,7 @@ export default function ModalAddTask({ Close }: Props) {
             placeholder="Today is ..."
           />
         </div>
-        <div className="flex flex-col">
+        <div className="flexCol">
           <label htmlFor="description">Description</label>
           <input
             className="h-12 w-full rounded-md border border-onyx-100 pl-3"
@@ -50,28 +37,30 @@ export default function ModalAddTask({ Close }: Props) {
             <label htmlFor="low">Low</label>
           </div>
         </div>
-        <div className="flex flex-col">
-          <label htmlFor="">Start From</label>
-          <input
-            className="rounded-md border border-onyx-100 pl-3"
-            type="datetime-local"
-            name="date"
-            id=""
-          />
+        <div className="flexCenter">
+          <div className="flexCol">
+            <label htmlFor="">Start From</label>
+            <input
+              className="rounded-md border border-onyx-100 pl-3"
+              type="datetime-local"
+              name="date"
+              id=""
+            />
+          </div>
+          <div className="flexCol">
+            <label htmlFor="">End From</label>
+            <input
+              className="rounded-md border border-onyx-100 pl-3"
+              type="datetime-local"
+              name="date"
+              id=""
+            />
+          </div>
         </div>
-        <div className="flex flex-col">
-          <label htmlFor="">End From</label>
-          <input
-            className="rounded-md border border-onyx-100 pl-3"
-            type="datetime-local"
-            name="date"
-            id=""
-          />
-        </div>
-        <div className="flex flex-col">
+        <div className="flexCol">
           <label htmlFor="">Note</label>
           <textarea
-            className="rounded-md border border-onyx-100 pl-3"
+            className="rounded-md border border-onyx-100 p-3"
             name=""
             id=""
             cols="30"
@@ -79,8 +68,14 @@ export default function ModalAddTask({ Close }: Props) {
           ></textarea>
         </div>
         <div className="flex items-center justify-end gap-3 w-full">
-          <CloseTask close={false} />
-          <SaveTask />
+          <button onClick={Close} className="buttonUtils bg-onyx-50">
+            Cancel
+          </button>
+          <input
+            type="submit"
+            className="buttonUtils cursor-pointer bg-indigo-500 text-white fill-white"
+            value="Add Task"
+          />
         </div>
       </div>
     </div>
