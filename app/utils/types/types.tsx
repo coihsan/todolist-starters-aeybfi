@@ -15,16 +15,16 @@ interface TaskProps {
   comment: string;
 }
 
-export const dataTask : TaskProps = [
-    {
-        id: 0,
-        title: "",
-        desc: "",
-        icon: "".
-        complete: ,
-        dateStart: ,
-        endStart: ,
-        level: high | mid | low,
-        comment: "",
-    }
-]
+export const dataTask: TaskProps = [
+  {
+    id: 0,
+    title: "",
+    desc: "",
+    icon: "",
+    complete: false,
+    dateStart: "",
+    endStart: "",
+    level: high | mid | low,
+    comment: "",
+  },
+];
