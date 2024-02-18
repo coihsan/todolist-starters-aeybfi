@@ -15,4 +15,7 @@
   .buttonUtils {
     @apply flex flexJustifyCenter px-5 py-2 rounded-md;
   }
+  .buttonMenu {
+    @apply hover:bg-zinc-200 rounded-full p-3 transition-all ease-linear duration-150;
+  }
 }

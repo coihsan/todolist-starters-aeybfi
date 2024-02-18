@@ -10,7 +10,7 @@ export default function WorkspaceNavbar() {
         <button>{iconsUI.add}</button>
       </div>
       <input
-        className="w-full rounded-lg h-[35px] pl-3 border border-zinc-300"
+        className="w-full rounded-lg h-[30px] pl-3 border border-zinc-300"
         type="search"
         name=""
         id=""
