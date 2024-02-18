@@ -1,5 +1,5 @@
 import Image from "next/image";
-import DarkMode from "../UI/DarkMode";
+import DarkMode from "@/src/UI/DarkMode";
 export default function User() {
   return (
     <div className="flex items-center gap-5">

@@ -1,4 +1,4 @@
-import { dataTask } from "../utils/types/types.tsx";
+import { dataTask } from "@/src/utils/types/types";
 interface WrapperListProps {
   index: dataTask[];
   className: string;

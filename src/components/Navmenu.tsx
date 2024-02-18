@@ -26,17 +26,17 @@ export default function Navmenu({ styling }: Props) {
     }
   };
   return (
-    <nav className={`${styling} flex items-start flex-col gap-1`}>
+    <nav className={`${styling} flex flex-col gap-1`}>
       {navmenu.map((nav) => (
         <Link
-          className="flex items-center group hover:bg-slate-700 rounded-md px-5 py-3 w-full transition-all ease-in-out duration-150 hover:text-white "
+          className="flex items-center group hover:bg-slate-700 rounded-md pl-3 py-3 w-full transition-all ease-in-out duration-150 hover:text-white "
           key={nav.key}
           href={nav.href}
         >
           <span className="flex items-center justify-center fill-onyx-500 dark:fill-onyx-300 group-hover:fill-white transition-all ease-in-out duration-150">
             {nav.icon}
           </span>
-          <span className="font-semibold pl-3 leading-none align-baseline">
+          <span className="font-semibold pl-3 leading-none align-baseline text-sm">
             {nav.text}
           </span>
         </Link>
