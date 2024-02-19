@@ -7,7 +7,13 @@ interface Props {
   pathname: string;
 }
 export const navmenu: Props[] = [
-  { key: 0, icon: iconNav.house, text: "Home", href: "/", pathname: "/home" },
+  {
+    key: 0,
+    icon: iconNav.house,
+    text: "Home",
+    href: "/menu/home",
+    pathname: "home",
+  },
   {
     key: 1,
     icon: iconNav.workspace,

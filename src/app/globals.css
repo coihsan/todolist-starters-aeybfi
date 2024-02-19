@@ -16,6 +16,6 @@
     @apply flex flexJustifyCenter px-5 py-2 rounded-md;
   }
   .buttonMenu {
-    @apply hover:bg-zinc-200 rounded-full p-3 transition-all ease-linear duration-150;
+    @apply bg-zinc-200 hover:bg-zinc-300 rounded-[30%] p-1 transition-all ease-linear duration-150 w-max;
   }
 }

@@ -18,9 +18,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} bg-white text-onyx-900 dark:bg-onyx-900 dark:text-onyx-50`}
+        className={`${inter.className} flex bg-white text-onyx-900 dark:bg-onyx-900 dark:text-onyx-50`}
       >
-        <main>{children}</main>
+        <Sidebar />
+        <main className="w-full">{children}</main>
       </body>
     </html>
   );

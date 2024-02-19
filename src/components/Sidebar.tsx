@@ -7,50 +7,67 @@ import WorkspaceNavbar from "./WorkspaceNavbar";
 import Image from "next/image";
 import Link from "next/link";
 import { navmenu } from "../constants/menu";
-
+const variants = {
+  open: { width: 80 },
+  closed: { width: 256 },
+};
 export default function Navbar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   return (
     <motion.section
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
+      animate={isOpen ? "open" : "closed"}
+      variants={variants}
       transition={{
         type: "spring",
         stiffness: 260,
         damping: 20,
       }}
-      className={`${isOpen ? "w-56" : "w-max"} border-r-2 border-zinc-200 dark:border-slate-700 bg-zinc-50 dark:bg-slate-950`}
+      className="max-w-56 border-r-2 border-zinc-200 dark:border-zinc-700 bg-zinc-50 dark:bg-zinc-950"
     >
-      <nav className="flex flex-col px-3 h-full py-5 ">
-        <div className="flex items-center gap-2">
+      <nav className="flex flex-col px-3 h-full py-5 relative">
+        <div className="absolute right-[-15px] top-5">
           {!isOpen ? (
             <button className="buttonMenu" onClick={() => setIsOpen(true)}>
-              {iconsUI.menu}
+              <Image
+                src={"./icons/ChevLeft.svg"}
+                width={24}
+                height={24}
+                alt="menu"
+              />
             </button>
           ) : (
             <button className="buttonMenu" onClick={() => setIsOpen(false)}>
-              {iconsUI.menu}
+              <Image
+                src={"./icons/ChevRight.svg"}
+                width={24}
+                height={24}
+                alt="menu"
+              />
             </button>
           )}
-          <Link className={`${isOpen ? "hidden" : "block"}`} href={"#"}>
-            <Image src={"/tiditodo.svg"} width={120} height={30} alt="logo" />
-          </Link>
+        </div>
+        <div className="flexCenter gap-2 relative">
+          <Image src={"/tiditodo-icon.svg"} width={30} height={30} alt="logo" />
+          {!isOpen && (
+            <Image
+              src={"/tiditodo-name.svg"}
+              width={78}
+              height={30}
+              alt="logo"
+            />
+          )}
         </div>
         <div className="pt-12 flex flex-col">
-          <span
-            className={`${isOpen ? "hidden" : "block"} font-semibold text-zinc-500 text-[12px]`}
-          >
-            MENU
-          </span>
+          <span className="font-semibold text-zinc-500 text-[12px]">MENU</span>
           <div className="flex flex-col">
             {navmenu.map((nav) => (
               <Link
-                className={`link ${pathname === "/" ? "active" : ""} flex items-center group hover:bg-slate-700 rounded-md pl-3 py-3 transition-all ease-in-out duration-150 hover:text-white`}
+                className={`link ${pathname === "/" ? "active" : ""} flex items-center group hover:bg-zinc-300 rounded-md pl-3 py-3 transition-all ease-in-out duration-150`}
                 key={nav.key}
                 href={nav.href}
               >
-                <span className="flex items-center justify-center fill-zinc-500 dark:fill-zinc-300 group-hover:fill-white transition-all ease-in-out duration-150">
+                <span className="flex items-center justify-center fill-zinc-500 dark:fill-zinc-300 transition-all ease-in-out duration-150">
                   {nav.icon}
                 </span>
                 <span
