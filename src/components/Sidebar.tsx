@@ -63,7 +63,7 @@ export default function Navbar() {
           <div className="flex flex-col">
             {navmenu.map((nav) => (
               <Link
-                className={`link ${pathname === "/" ? "active" : ""} flex items-center group hover:bg-zinc-300 rounded-md pl-3 py-3 transition-all ease-in-out duration-150`}
+                className={`link ${pathname === nav.pathname ? "active" : ""} flex items-center group hover:bg-zinc-300 rounded-md pl-3 py-3 transition-all ease-in-out duration-150`}
                 key={nav.key}
                 href={nav.href}
               >

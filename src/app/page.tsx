@@ -1,5 +1,3 @@
-import Image from "next/image";
-import Sidebar from "@/src/components/Sidebar";
 import Header from "@/src/components/Header";
 import Footer from "@/src/components/Footer";
 import TaskList from "@/src/components/TaskList";
