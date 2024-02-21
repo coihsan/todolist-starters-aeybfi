@@ -1,6 +1,6 @@
-import Header from "@/src/components/Header";
-import Footer from "@/src/components/Footer";
-import TaskList from "@/src/components/TaskList";
+import Header from "@/components/navigation";
+import Footer from "@/components/Footer";
+import TaskList from "@/components/TaskList";
 export default function Home() {
   return (
     <section className="h-[100svh] w-full flex">

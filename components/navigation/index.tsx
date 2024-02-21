@@ -2,11 +2,10 @@
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { iconsUI } from "../constants/icons";
-import WorkspaceNavbar from "./WorkspaceNavbar";
+import WorkspaceNavbar from "@/components/WorkspaceNavbar";
 import Image from "next/image";
 import Link from "next/link";
-import { navmenu } from "../constants/menu";
+import { navmenu } from "@/lib/menu";
 const variants = {
   open: { width: 80 },
   closed: { width: 256 },

@@ -1,5 +1,5 @@
 "use client";
-import { iconsUI } from "../constants/icons";
+import { iconsUI } from "@/src/constants/icons";
 export default function WorkspaceNavbar() {
   return (
     <div className="overflow-y-scroll pt-6">
