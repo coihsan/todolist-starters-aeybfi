@@ -1,4 +1,4 @@
-import { iconNav } from "@/src/constants/icons";
+import { iconNav } from "./constants/icons";
 interface Props {
   key: number;
   icon: JSX.Element;
