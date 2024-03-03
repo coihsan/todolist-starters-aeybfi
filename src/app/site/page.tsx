@@ -1,7 +1,10 @@
-export default function Site() {
+import { SignInButton } from "@clerk/nextjs";
+export default function Home() {
   return (
-    <div>
-      <span>Hello Site!</span>
-    </div>
+    <section className="h-[100svh] w-full flex">
+      <main className="px-6 max-sm:px-6 w-full">
+        <SignInButton />
+      </main>
+    </section>
   );
 }

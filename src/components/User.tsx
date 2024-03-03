@@ -1,9 +1,9 @@
 import Image from "next/image";
-import DarkMode from "@/src/UI/DarkMode";
+import { ModeToggle } from "./costum/mode-toggle";
+import { Avatar } from "./ui/avatar";
 export default function User() {
   return (
     <div className="flex items-center gap-5">
-      <DarkMode />
       <Image
         className="rounded-full"
         src={"/avatar/avatar1.webp"}
@@ -11,6 +11,7 @@ export default function User() {
         height={40}
         alt="user"
       />
+      <ModeToggle />
     </div>
   );
 }

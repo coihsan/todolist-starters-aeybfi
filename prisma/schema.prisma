@@ -54,6 +54,8 @@ model User {
   posts       Post[]
   createdAt    DateTime       @default(now())
   updatedAt    DateTime       @updatedAt
+  city         String
+  country      String
   Notification Notification[]
 }
 
@@ -90,7 +92,7 @@ type Address {
 }
 
 model Post {
-  id       String    @id @default(auto()) @map("_id") @db.ObjectId
+  id       String    @id @default(autoincrement())
   slug     String    @unique
   title    String
   body     String
@@ -99,32 +101,25 @@ model Post {
   comments Comment[]
 }
 
-
-
 model Comment {
-  id      String @id @default(auto()) @map("_id") @db.ObjectId
+  id      String @id @default(autoincrement())
+  name    String
   comment String
   post    Post   @relation(fields: [postId], references: [id])
   postId  String @db.ObjectId
 }
 
-
-
 model Tag {
-  id           String   @id @default(uuid())
+  id           String   @id @default(autoincrement())
   name         String
   color        String
   createdAt    DateTime @default(now())
   updatedAt    DateTime @updatedAt
-  subAccountId String
-
-  SubAccount SubAccount @relation(fields: [subAccountId], references: [id], onDelete: Cascade)
-  Ticket     Ticket[]
 
   @@index([subAccountId])
 }
 model Workspace {
-  id                String    @id @default(auto()) @map("_id") @db.ObjectId
+  id                String    @id @default(autoincrement())
   worksSpaceLogo    String?   @db.Text
   workspaceName     String
   workspaceId       String
@@ -132,8 +127,29 @@ model Workspace {
   updateAt          String?
   createdBy         String
   description       String?
+  complete          Boolean(false)
 }
 model Team {
-  id               String    @id @default(auto()) @map("_id") @db.ObjectId
+  id               String    @id @default(autoincrement())
   asTeam           String
+}
+model Board {
+  checklist       Checklist[]
+  Todo            Todo[]
+}
+model Checklist {
+  id              String     @id @default(auto()) @map("_id") @db.ObjectId
+  title           String
+  complete        Boolean(false)
+  dueDate         String
+  userId          String @db.ObjectId
+  User            @relation(fields: [userId], references: [id])
+}
+model Todo {
+  id              String     @id @default(autoincrement())
+  title           String
+  description     String
+  createAt        Date
+  dueDate         Date
+  comments  Json
 }
