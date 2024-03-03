@@ -8,7 +8,43 @@ datasource db {
 }
 
 // USER SECTION
-
+enum Role {
+  WORKSPACE_OWNER
+  WORKSPACE_TEAM_MEMBER
+  USER_ID
+}
+enum Icon {
+  settings
+  chart
+  calendar
+  check
+  chip
+  compass
+  database
+  flag
+  home
+  info
+  link
+  lock
+  messages
+  notification
+  payment
+  power
+  receipt
+  shield
+  star
+  tune
+  videorecorder
+  wallet
+  warning
+  headphone
+  send
+  pipelines
+  person
+  category
+  contact
+  clipboardIcon
+}
 model User {
   id          String   @id @default(auto()) @map("_id") @db.ObjectId
   email       String   @unique

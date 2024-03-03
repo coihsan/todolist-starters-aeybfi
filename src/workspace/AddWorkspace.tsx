@@ -1,5 +1,5 @@
 "use client";
-import { iconsUI } from "../constants/icons";
+import { iconsUI } from "../lib/constants/icons";
 import { useEffect, useState } from "react";
 export default function AddWorkspace() {
   const [isAdd, setIsAdd] = useState([]);
